@@ -1,0 +1,10 @@
+/WebApi/bin/
+/WebApi/obj/
+/Presentation/bin/
+/Presentation/obj/
+/Application/bin/
+/Application/obj/
+/Infrastructure/bin
+/Infrastructure/obj
+/Domain/bin
+/Domain/obj
