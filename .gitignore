@@ -6,5 +6,5 @@
 /Application/obj/
 /Infrastructure/bin
 /Infrastructure/obj
-/Domain/bin
-/Domain/obj
+/Domain/bin/
+/Domain/obj/
