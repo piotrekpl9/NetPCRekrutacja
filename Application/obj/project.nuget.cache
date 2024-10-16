@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ANds+ZN4TmevL/gk4DmohUrvystvj2yFak52slNivkVlj4FF2Okxw4uNPF9xZZeVQvoPXjWvLt8edZbDNeNsew==",
+  "dgSpecHash": "syKboVRMFvCoCimSpLIkPdnUi2VKDbAs9sGJFbqdCWY7OLDOHoEmfJqPcX4rqhXeUzxGwu6oaDUcSAopxWTSGA==",
   "success": true,
   "projectFilePath": "/Users/piotrpluta/development/NetPCRekrutacja/Application/Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/piotrpluta/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
+    "/Users/piotrpluta/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/piotrpluta/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

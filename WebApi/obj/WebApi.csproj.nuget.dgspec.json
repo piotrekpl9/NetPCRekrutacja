@@ -36,16 +36,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -94,11 +95,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -156,17 +152,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -177,9 +172,84 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/Presentation.csproj",
+        "projectName": "Presentation",
+        "projectPath": "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/Presentation.csproj",
+        "packagesPath": "/Users/piotrpluta/.nuget/packages/",
+        "outputPath": "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/piotrpluta/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/piotrpluta/development/NetPCRekrutacja/Application/Application.csproj": {
+                "projectPath": "/Users/piotrpluta/development/NetPCRekrutacja/Application/Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Carter": {
+              "target": "Package",
+              "version": "[8.2.1, )"
+            },
+            "Microsoft.CodeAnalysis.Common": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             }
           },
           "imports": [
@@ -226,6 +296,9 @@
             "projectReferences": {
               "/Users/piotrpluta/development/NetPCRekrutacja/Infrastructure/Infrastructure.csproj": {
                 "projectPath": "/Users/piotrpluta/development/NetPCRekrutacja/Infrastructure/Infrastructure.csproj"
+              },
+              "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/Presentation.csproj": {
+                "projectPath": "/Users/piotrpluta/development/NetPCRekrutacja/Presentation/Presentation.csproj"
               }
             }
           }
@@ -234,11 +307,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -248,6 +316,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.Workspaces": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

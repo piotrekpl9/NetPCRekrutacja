@@ -1,21 +1,21 @@
 using Domain.Entity;
-using Infrastructure.Auth;
+using Infrastructure.Authentication.Model;
+using Infrastructure.Common.Abstraction;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
-
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions options) : base(options)
     {
         
     }
 
-    public AuthenticationData AuthenticationData { get; set; }
+    public DbSet<AuthenticationData> AuthenticationData { get; set; }
     public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Domain.Entity.User> Users { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Subcategory> Subcategories { get; set; }
-    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql();

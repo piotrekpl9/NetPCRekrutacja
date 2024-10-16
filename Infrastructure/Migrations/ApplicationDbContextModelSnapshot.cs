@@ -107,16 +107,34 @@ namespace Infrastructure.Migrations
                     b.ToTable("Subcategories");
                 });
 
+            modelBuilder.Entity("Domain.Entity.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("Infrastructure.Auth.AuthenticationData", b =>
                 {
-                    b.Property<Guid>("ContactId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("ContactId");
+                    b.HasKey("UserId");
 
                     b.ToTable("AuthenticationData");
                 });
@@ -140,9 +158,9 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Infrastructure.Auth.AuthenticationData", b =>
                 {
-                    b.HasOne("Domain.Entity.Contact", null)
+                    b.HasOne("Domain.Entity.User", null)
                         .WithOne()
-                        .HasForeignKey("Infrastructure.Auth.AuthenticationData", "ContactId")
+                        .HasForeignKey("Infrastructure.Auth.AuthenticationData", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
