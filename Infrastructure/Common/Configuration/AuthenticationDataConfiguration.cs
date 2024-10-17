@@ -1,5 +1,4 @@
-using Domain.Entity;
-using Infrastructure.Authentication;
+using Infrastructure.Authentication.Entity;
 using Infrastructure.Authentication.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -10,7 +9,7 @@ public class AuthenticationDataConfiguration : IEntityTypeConfiguration<Authenti
 {
     public void Configure(EntityTypeBuilder<AuthenticationData> builder)
     {
-        builder.HasKey(data => data.UserId);
-        builder.HasOne<Domain.Entity.User>().WithOne().HasForeignKey<AuthenticationData>(authenticationData =>  authenticationData.UserId);
+        builder.HasKey(data => data.Id);
+        builder.HasOne<Domain.Entity.User>().WithOne().HasForeignKey<AuthenticationData>(authenticationData =>  authenticationData.Id);
     }
 }

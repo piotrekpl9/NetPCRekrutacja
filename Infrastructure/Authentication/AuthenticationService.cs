@@ -4,6 +4,7 @@ using Application.User.Abstraction;
 using Application.User.Model.Error;
 using Domain.Common.Result;
 using Infrastructure.Authentication.Abstraction;
+using Infrastructure.Authentication.Entity;
 using Infrastructure.Authentication.Model;
 using Microsoft.AspNetCore.Identity;
 
@@ -57,5 +58,10 @@ public class AuthenticationService : IAuthenticationService
         var token = _jwtTokenGenerator.GenerateToken(user.Id, email);
 
         return Result<LoginResultDto>.Success(new LoginResultDto(user.Id, token));
+    }
+
+    public string HashPassword(string password)
+    {
+        return _passwordHasher.HashPassword(default, password);
     }
 }

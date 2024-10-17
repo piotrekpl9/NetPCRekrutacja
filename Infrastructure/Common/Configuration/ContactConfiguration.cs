@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Common.Configuration;
+using Domain.Entity;
 
 public class ContactConfiguration : IEntityTypeConfiguration<Contact>
 {

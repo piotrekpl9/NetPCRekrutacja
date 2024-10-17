@@ -1,4 +1,5 @@
 using Infrastructure.Authentication.Abstraction;
+using Infrastructure.Authentication.Entity;
 using Infrastructure.Authentication.Model;
 using Infrastructure.Common;
 using Infrastructure.Common.Abstraction;
@@ -14,6 +15,6 @@ public class AuthenticationRepository : RepositoryBase<AuthenticationData>, IAut
 
     public async Task<AuthenticationData?> GetById(Guid id, CancellationToken cancellationToken = default)
     {
-        return await DbContext.AuthenticationData.FirstOrDefaultAsync(data => data.UserId == id, cancellationToken);
+        return await DbContext.AuthenticationData.FirstOrDefaultAsync(data => data.Id == id, cancellationToken);
     }
 }

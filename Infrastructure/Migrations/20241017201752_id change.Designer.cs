@@ -3,6 +3,7 @@ using System;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241017201752_id change")]
+    partial class idchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,23 +41,6 @@ namespace Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("e669fad2-79f6-4a65-bf80-8f6799663dbf"),
-                            Name = "Słubowy"
-                        },
-                        new
-                        {
-                            Id = new Guid("6b2fe5c0-2b92-4fc7-84ab-d5f4885bc907"),
-                            Name = "Prywatny"
-                        },
-                        new
-                        {
-                            Id = new Guid("0d6c2e2a-0f2e-4f05-af8e-f2fc8ef3ac11"),
-                            Name = "Inny"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entity.Contact", b =>
@@ -126,22 +112,6 @@ namespace Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Subcategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("080de9db-ed11-4d44-ab6e-4931fbcce785"),
-                            CategoryId = new Guid("e669fad2-79f6-4a65-bf80-8f6799663dbf"),
-                            IsDefault = true,
-                            Name = "Szef"
-                        },
-                        new
-                        {
-                            Id = new Guid("b8fb7cf0-3658-4ddd-8992-5340d7e559b0"),
-                            CategoryId = new Guid("e669fad2-79f6-4a65-bf80-8f6799663dbf"),
-                            IsDefault = true,
-                            Name = "Klient"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entity.User", b =>
@@ -162,7 +132,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Infrastructure.Authentication.Entity.AuthenticationData", b =>
+            modelBuilder.Entity("Infrastructure.Authentication.Model.AuthenticationData", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
@@ -193,11 +163,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Subcategory");
                 });
 
-            modelBuilder.Entity("Infrastructure.Authentication.Entity.AuthenticationData", b =>
+            modelBuilder.Entity("Infrastructure.Authentication.Model.AuthenticationData", b =>
                 {
                     b.HasOne("Domain.Entity.User", null)
                         .WithOne()
-                        .HasForeignKey("Infrastructure.Authentication.Entity.AuthenticationData", "Id")
+                        .HasForeignKey("Infrastructure.Authentication.Model.AuthenticationData", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

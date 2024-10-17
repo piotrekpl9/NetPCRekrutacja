@@ -1,3 +1,4 @@
+using Infrastructure.Authentication.Entity;
 using Infrastructure.Authentication.Model;
 
 namespace Infrastructure.Authentication.Abstraction;

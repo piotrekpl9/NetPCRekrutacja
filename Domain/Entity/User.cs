@@ -3,16 +3,14 @@ using Primitives;
 
 public class User : Entity
 {
-    public User()
+    public User(Guid id) : base(id)
     {
         
     }
-    public User(Guid id, string email)
+    public User(Guid id, string email) : base(id)
     {
-        Id = id;
         Email = email;
     }
 
-    public Guid Id { get; set; }
     public string Email { get; set; }
 }

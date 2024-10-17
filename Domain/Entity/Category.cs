@@ -2,17 +2,16 @@ namespace Domain.Entity;
 using Primitives;
 public class Category : Entity
 {
-    public Category()
+    //TODO Consider switching to VO
+    public Category(Guid id) : base(id)
     {
         
     }
     
-    public Category(Guid id, string name)
+    public Category(Guid id, string name) : base(id)
     {
-        Id = id;
         Name = name;
     }
 
-    public Guid Id { get; set; }
     public string Name { get; set; }
 }

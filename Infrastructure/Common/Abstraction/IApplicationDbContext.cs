@@ -1,9 +1,10 @@
 using Domain.Entity;
+using Infrastructure.Authentication.Entity;
 using Infrastructure.Authentication.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Common.Abstraction;
-
+using Domain.Entity;
 public interface IApplicationDbContext
 {
     public DbSet<AuthenticationData> AuthenticationData { get; set; }
