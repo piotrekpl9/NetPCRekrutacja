@@ -6,15 +6,15 @@ namespace Infrastructure.Common;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly DbContext _dbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public UnitOfWork(DbContext dbContext)
+    public UnitOfWork(IApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        return _dbContext.SaveChangesAsync();
+        return await _dbContext.SaveChangesAsync();
     }
 }

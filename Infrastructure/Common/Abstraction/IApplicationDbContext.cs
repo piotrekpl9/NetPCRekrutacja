@@ -13,4 +13,6 @@ public interface IApplicationDbContext
     public DbSet<Subcategory> Subcategories { get; set; }
     public DbSet<T> Set<T>() where T : class;
     
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    
 }

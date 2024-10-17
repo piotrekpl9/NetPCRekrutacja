@@ -1,13 +1,13 @@
 using Domain.Primitives;
-using Microsoft.EntityFrameworkCore;
+using Infrastructure.Common.Abstraction;
 
 namespace Infrastructure.Common;
 
 public abstract class RepositoryBase<T> where T : Entity
 {
-    protected readonly ApplicationDbContext DbContext;
+    protected readonly IApplicationDbContext DbContext;
 
-    protected RepositoryBase(ApplicationDbContext dbContext)
+    protected RepositoryBase(IApplicationDbContext dbContext)
     {
         DbContext = dbContext;
     }

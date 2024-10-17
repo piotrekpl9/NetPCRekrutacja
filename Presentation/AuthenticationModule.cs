@@ -4,9 +4,9 @@ using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Presentation.Model;
 
 namespace Presentation;
 
@@ -23,7 +23,7 @@ public class AuthenticationModule() : CarterModule("api/auth")
         var result = await authenticationService.Login(request.Email,request.Password,cancellationToken);
         if (result.IsFailure)
         {
-            return Results.BadRequest();
+            return Results.BadRequest(result.Error.Name);
         }
         return Results.Ok(result.Value);
     }
@@ -33,7 +33,7 @@ public class AuthenticationModule() : CarterModule("api/auth")
         var result = await sender.Send(new CreateUserCommand(request.Email,request.Password), cancellationToken);
         if (result.IsFailure)
         {
-            return Results.BadRequest();
+            return Results.BadRequest(result.Error.Name);
         }
         return Results.Ok();
     }

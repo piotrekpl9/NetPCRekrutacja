@@ -26,6 +26,7 @@ public class AuthenticationService : IAuthenticationService
 
     public async Task<Result> Register(Guid userId, string password, CancellationToken cancellationToken = default)
     {
+        
         await _authenticationRepository.Create(new AuthenticationData(userId, _passwordHasher.HashPassword(default,password)),cancellationToken);
         return Result.Success();
     }

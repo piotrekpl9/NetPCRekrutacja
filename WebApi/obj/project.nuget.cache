@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bMCWJdILPTIxXeZHVd+j13hl/kQ184RYqmoVT4XvyVjrR8tvfgBE7AyL4uqdHSJbPYRZqq9mMMVSrj1G9Jk2hw==",
+  "dgSpecHash": "S8ROrxvVac+si338jQb458NwjlRTeTs2m827dHwaCS6Ts+0lm8QX8shAkoBh/b9VJpM/KY1Ose74r6o1D+4qwA==",
   "success": true,
   "projectFilePath": "/Users/piotrpluta/development/NetPCRekrutacja/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.caching.memory/8.0.1/microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "/Users/piotrpluta/.nuget/packages/microsoft.extensions.configuration.binder/8.0.0/microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.dependencymodel/8.0.2/microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512",
@@ -37,6 +38,7 @@
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.logging/8.0.1/microsoft.extensions.logging.8.0.1.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/Users/piotrpluta/.nuget/packages/microsoft.extensions.options.configurationextensions/8.0.0/microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.identitymodel.abstractions/8.1.2/microsoft.identitymodel.abstractions.8.1.2.nupkg.sha512",
     "/Users/piotrpluta/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.1.2/microsoft.identitymodel.jsonwebtokens.8.1.2.nupkg.sha512",

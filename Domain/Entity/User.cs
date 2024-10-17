@@ -3,6 +3,10 @@ using Primitives;
 
 public class User : Entity
 {
+    public User()
+    {
+        
+    }
     public User(Guid id, string email)
     {
         Id = id;

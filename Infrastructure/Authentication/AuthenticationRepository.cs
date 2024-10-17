@@ -1,13 +1,14 @@
 using Infrastructure.Authentication.Abstraction;
 using Infrastructure.Authentication.Model;
 using Infrastructure.Common;
+using Infrastructure.Common.Abstraction;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Authentication;
 
 public class AuthenticationRepository : RepositoryBase<AuthenticationData>, IAuthenticationRepository
 {
-    public AuthenticationRepository(ApplicationDbContext dbContext) : base(dbContext)
+    public AuthenticationRepository(IApplicationDbContext dbContext) : base(dbContext)
     {
     }
 

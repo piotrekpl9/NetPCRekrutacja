@@ -4,6 +4,7 @@ using System.Text;
 using Infrastructure.Authentication.Abstraction;
 using Infrastructure.Authentication.Model;
 using Infrastructure.Common;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Authentication;
@@ -12,9 +13,9 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 {
     private readonly JwtSettings _jwtSettings;
 
-    public JwtTokenGenerator(JwtSettings jwtSettings)
+    public JwtTokenGenerator(IOptions<JwtSettings> jwtSettings)
     {
-        _jwtSettings = jwtSettings;
+        _jwtSettings = jwtSettings.Value;
     }
 
     public string GenerateToken(Guid userId, string email)
