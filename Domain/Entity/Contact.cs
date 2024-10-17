@@ -1,6 +1,7 @@
 namespace Domain.Entity;
+using Primitives;
 
-public class Contact
+public class Contact : Entity
 {
     public Contact()
     {

@@ -1,6 +1,6 @@
 namespace Domain.Entity;
-
-public class Category
+using Primitives;
+public class Category : Entity
 {
     public Category()
     {

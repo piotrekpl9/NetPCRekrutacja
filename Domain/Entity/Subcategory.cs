@@ -1,6 +1,7 @@
 namespace Domain.Entity;
+using Primitives;
 
-public class Subcategory
+public class Subcategory : Entity
 {
     public Subcategory()
     {

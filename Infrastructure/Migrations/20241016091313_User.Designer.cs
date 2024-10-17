@@ -3,6 +3,7 @@ using System;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241016091313_User")]
+    partial class User
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,10 +125,10 @@ namespace Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
-            modelBuilder.Entity("Infrastructure.Authentication.Model.AuthenticationData", b =>
+            modelBuilder.Entity("Infrastructure.Auth.AuthenticationData", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -156,11 +159,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Subcategory");
                 });
 
-            modelBuilder.Entity("Infrastructure.Authentication.Model.AuthenticationData", b =>
+            modelBuilder.Entity("Infrastructure.Auth.AuthenticationData", b =>
                 {
                     b.HasOne("Domain.Entity.User", null)
                         .WithOne()
-                        .HasForeignKey("Infrastructure.Authentication.Model.AuthenticationData", "UserId")
+                        .HasForeignKey("Infrastructure.Auth.AuthenticationData", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
