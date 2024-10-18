@@ -1,6 +1,6 @@
 namespace Presentation.Model.Request;
 
-public sealed record CreateContactRequest(
+public record UpdateContactRequest(
     string Name, 
     string Surname, 
     string Email, 

@@ -13,7 +13,7 @@ public class ContactRepository : RepositoryBase<Domain.Entity.Contact>,IContactR
 
     public async Task<Domain.Entity.Contact?> GetById(Guid contactId, CancellationToken cancellationToken = default)
     {
-        return await DbContext.Contacts.FirstOrDefaultAsync(contact => contact.Id == contactId, cancellationToken: cancellationToken);
+        return await DbContext.Contacts.Include(contact => contact.Category).Include(contact => contact.Subcategory).FirstOrDefaultAsync(contact => contact.Id == contactId, cancellationToken: cancellationToken);
     }
 
     public async Task<List<Domain.Entity.Contact>> GetAll(CancellationToken cancellationToken = default)

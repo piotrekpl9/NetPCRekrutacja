@@ -9,7 +9,7 @@ public class Subcategory : Entity
         
     }
     
-    public Subcategory(Guid id, Guid categoryId, string name, bool isDefault) : base(id)
+    public Subcategory(Guid id, Guid categoryId, string? name, bool isDefault) : base(id)
     {
         CategoryId = categoryId;
         Name = name;
@@ -17,10 +17,10 @@ public class Subcategory : Entity
     }
 
     public Guid CategoryId { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public bool IsDefault { get; set; }
     
-    public override string ToString()
+    public override string? ToString()
     {
         return Name;
     }

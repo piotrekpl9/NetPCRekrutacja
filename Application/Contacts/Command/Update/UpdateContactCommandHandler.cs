@@ -84,7 +84,7 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
             contact.Email = request.Email;
         }
         
-        contact.BirthDate = request.BirthDate;
+        contact.BirthDate = request.BirthDate.ToUniversalTime();
         contact.PhoneNumber = request.PhoneNumber;
         contact.Name = request.Name;
         contact.Surname = request.Surname;
