@@ -20,7 +20,7 @@ namespace Infrastructure.Migrations
                 {
                     { new Guid("0d6c2e2a-0f2e-4f05-af8e-f2fc8ef3ac11"), "Inny" },
                     { new Guid("6b2fe5c0-2b92-4fc7-84ab-d5f4885bc907"), "Prywatny" },
-                    { new Guid("e669fad2-79f6-4a65-bf80-8f6799663dbf"), "Słubowy" }
+                    { new Guid("e669fad2-79f6-4a65-bf80-8f6799663dbf"), "Służbowy" }
                 });
 
             migrationBuilder.InsertData(

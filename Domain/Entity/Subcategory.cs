@@ -19,4 +19,9 @@ public class Subcategory : Entity
     public Guid CategoryId { get; set; }
     public string Name { get; set; }
     public bool IsDefault { get; set; }
+    
+    public override string ToString()
+    {
+        return Name;
+    }
 }

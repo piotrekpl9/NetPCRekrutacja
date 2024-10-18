@@ -4,6 +4,8 @@ using Application.Category.Model.Error;
 using Application.Common.Abstraction;
 using Application.Contacts.Abstraction;
 using Application.Contacts.Model.Error;
+using Application.Subcategory.Abstraction;
+using Application.Subcategory.Model.Error;
 using Domain.Common.Result;
 
 namespace Application.Contacts.Command.Update;
@@ -12,15 +14,17 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
 {
     private readonly IContactRepository _contactRepository;
     private readonly ICategoryRepository _categoryRepository;
+    private readonly ISubcategoryRepository _subcategoryRepository;
     private readonly IAuthenticationService _authenticationService;
     private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateContactCommandHandler(IContactRepository contactRepository, IUnitOfWork unitOfWork, ICategoryRepository categoryRepository, IAuthenticationService authenticationService)
+    public UpdateContactCommandHandler(IContactRepository contactRepository, IUnitOfWork unitOfWork, ICategoryRepository categoryRepository, IAuthenticationService authenticationService, ISubcategoryRepository subcategoryRepository)
     {
         _contactRepository = contactRepository;
         _unitOfWork = unitOfWork;
         _categoryRepository = categoryRepository;
         _authenticationService = authenticationService;
+        _subcategoryRepository = subcategoryRepository;
     }
 
     public async Task<Result> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
@@ -31,14 +35,42 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
             return Result.Failure(ContactError.ContactNotFound);
         }
 
-        if (contact.Category.Id != request.CategoryId)
+        if (contact.Category.Name != request.CategoryName)
         {
             //TODO Do something with subcategory after category update
-            var category = await _categoryRepository.GetById(request.CategoryId, cancellationToken);
+            var category = await _categoryRepository.GetByName(request.CategoryName, cancellationToken);
             if (category is null)
             {
                 return Result.Failure(CategoryError.CategoryNotFound);
             }
+
+            if (category.Name != "Prywatny")
+            {
+                if (request.SubcategoryName != contact.Subcategory?.Name)
+                {
+                    var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
+
+                    if (category.Name == "Służbowy")
+                    {
+                        if (subcategory is null || !subcategory.IsDefault)
+                        {
+                            subcategory = null;
+                        }
+                        
+                    }
+                    else if(category.Name == "Inny")
+                    {
+                        if (subcategory is null)
+                        {
+                            subcategory = new Domain.Entity.Subcategory(Guid.NewGuid(), category.Id ,request.SubcategoryName, false);
+                            await _subcategoryRepository.Create(subcategory, cancellationToken);
+                        }
+                    }
+                    
+                    contact.Subcategory = subcategory;
+                }
+            }
+            
             contact.Category = category;
         }
 
@@ -51,6 +83,7 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
             }
             contact.Email = request.Email;
         }
+        
         contact.BirthDate = request.BirthDate;
         contact.PhoneNumber = request.PhoneNumber;
         contact.Name = request.Name;

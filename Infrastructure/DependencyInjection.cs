@@ -66,9 +66,11 @@ public static class DependencyInjection
             var defaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                 .RequireAuthenticatedUser()
                 .Build();
-    
+          
             options.DefaultPolicy = defaultPolicy;
         });
+        
+        
         return services;
     }
 }
