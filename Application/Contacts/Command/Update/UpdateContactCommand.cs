@@ -7,7 +7,8 @@ public sealed record UpdateContactCommand(
     string Name, 
     string Surname, 
     string Email, 
-    Guid CategoryId, 
+    string CategoryName,
+    string SubcategoryName,
     DateTime BirthDate,
     string Password, 
     string PhoneNumber) : ICommand;

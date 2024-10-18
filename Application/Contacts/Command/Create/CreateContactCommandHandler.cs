@@ -53,8 +53,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             request.PhoneNumber,
             _authenticationService.HashPassword(request.Password));
         
-        //TODO add Enum parsing for category.Name
-        if (category.Name == "Słuzbowy" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
+        if (category.Name == "Służbowy" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
         {
             var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
             if (subcategory is null)
@@ -74,7 +73,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             if (subcategory is null)
             {
                 subcategory = new Subcategory(Guid.NewGuid(), category.Id ,request.SubcategoryName, false);
-                await _subcategoryRepository.Create(subcategory);
+                await _subcategoryRepository.Create(subcategory, cancellationToken);
             }
 
             contact.Subcategory = subcategory;

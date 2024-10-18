@@ -18,7 +18,7 @@ public class ContactRepository : RepositoryBase<Domain.Entity.Contact>,IContactR
 
     public async Task<List<Domain.Entity.Contact>> GetAll(CancellationToken cancellationToken = default)
     {
-        return await DbContext.Contacts.ToListAsync(cancellationToken);
+        return await DbContext.Contacts.Include(contact => contact.Category).Include(contact => contact.Subcategory).ToListAsync(cancellationToken);
 
     }
 
