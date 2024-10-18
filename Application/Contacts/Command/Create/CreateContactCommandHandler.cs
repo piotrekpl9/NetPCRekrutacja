@@ -53,7 +53,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             request.PhoneNumber,
             _authenticationService.HashPassword(request.Password));
         
-        if (category.Name == "Służbowy" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
+        if (category.Name == "Business" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
         {
             var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
             if (subcategory is null)
@@ -67,7 +67,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             }
         }
         
-        if (category.Name == "Inny" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
+        if (category.Name == "Other" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
         {
             var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
             if (subcategory is null)

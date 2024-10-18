@@ -17,7 +17,7 @@ public class CategoryRepository : RepositoryBase<Domain.Entity.Category>, ICateg
 
     public async Task<Domain.Entity.Category?> GetByName(string name, CancellationToken cancellationToken = default)
     {
-        return await DbContext.Categories.FirstOrDefaultAsync(category => category.Name == name, cancellationToken);
+        return await DbContext.Categories.FirstOrDefaultAsync(category => category.Name.ToLower()==name.ToLower(), cancellationToken);
 
     }
 }

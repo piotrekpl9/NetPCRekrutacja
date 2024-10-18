@@ -44,13 +44,13 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
                 return Result.Failure(CategoryError.CategoryNotFound);
             }
 
-            if (category.Name != "Prywatny")
+            if (category.Name != "Private")
             {
                 if (request.SubcategoryName != contact.Subcategory?.Name)
                 {
                     var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
 
-                    if (category.Name == "Służbowy")
+                    if (category.Name == "Business")
                     {
                         if (subcategory is null || !subcategory.IsDefault)
                         {
@@ -58,7 +58,7 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
                         }
                         
                     }
-                    else if(category.Name == "Inny")
+                    else if(category.Name == "Other")
                     {
                         if (subcategory is null)
                         {

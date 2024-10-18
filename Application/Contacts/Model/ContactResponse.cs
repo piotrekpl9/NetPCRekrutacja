@@ -5,8 +5,8 @@
         string Name,
         string Surname,
         string Email,
-        string Category,
-        string Subcategory,
+        string CategoryName,
+        string SubcategoryName,
         DateTime BirthDate,
         string PhoneNumber
     );
