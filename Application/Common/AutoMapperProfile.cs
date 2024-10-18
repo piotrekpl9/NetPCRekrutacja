@@ -10,11 +10,11 @@ public class AutoMapperProfile : Profile
     {
         CreateMap<Contact, ContactResponse>()
             .ForMember(
-                dest => dest.Category,
+                dest => dest.CategoryName,
                 opt => 
                     opt.MapFrom(src => src.Category.Name))
             .ForMember(
-                dest => dest.Subcategory,
+                dest => dest.SubcategoryName,
                 opt => 
                     opt.MapFrom(src => src.Subcategory != null ? src.Subcategory.Name : null));
     }   

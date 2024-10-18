@@ -17,9 +17,8 @@ public class SubcategoryRepository : RepositoryBase<Domain.Entity.Subcategory>,I
         return await DbContext.Subcategories.FirstOrDefaultAsync(subcategory => subcategory.Id == subcategoryId, cancellationToken: cancellationToken);
     }
 
-    public async Task<Domain.Entity.Subcategory?> GetByName(string name, CancellationToken cancellationToken = default)
+    public async Task<Domain.Entity.Subcategory?> GetByName(string? name, CancellationToken cancellationToken = default)
     {
-        return await DbContext.Subcategories.FirstOrDefaultAsync(subcategory => subcategory.Name == name, cancellationToken: cancellationToken);
-
+       return await DbContext.Subcategories.FirstOrDefaultAsync(subcategory => subcategory.Name.ToLower()==name.ToLower(), cancellationToken: cancellationToken);
     }
 }
