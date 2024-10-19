@@ -2,7 +2,6 @@ namespace Domain.Entity;
 using Primitives;
 public class Category : Entity
 {
-    //TODO Consider switching to VO
     public Category(Guid id) : base(id)
     {
         

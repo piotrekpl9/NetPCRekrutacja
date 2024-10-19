@@ -37,7 +37,6 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
 
         if (contact.Category.Name != request.CategoryName)
         {
-            //TODO Do something with subcategory after category update
             var category = await _categoryRepository.GetByName(request.CategoryName, cancellationToken);
             if (category is null)
             {

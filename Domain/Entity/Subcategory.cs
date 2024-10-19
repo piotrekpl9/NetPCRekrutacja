@@ -3,7 +3,6 @@ using Primitives;
 
 public class Subcategory : Entity
 {
-    //TODO Consider switching to VO
     public Subcategory(Guid id) : base(id)
     {
         

@@ -42,7 +42,6 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             return Result.Failure(CategoryError.CategoryNotFound);
         }
         
-        //TODO add subcategory
         var contact = new Contact(
             Guid.NewGuid(),
             request.Name,
