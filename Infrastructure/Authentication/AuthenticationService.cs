@@ -64,4 +64,9 @@ public class AuthenticationService : IAuthenticationService
     {
         return _passwordHasher.HashPassword(default, password);
     }
+
+    public bool VerifyPasswordsMatch(string password, string otherPassword)
+    {
+        return _passwordHasher.VerifyHashedPassword(default, password, otherPassword) == PasswordVerificationResult.Success;
+    }
 }
