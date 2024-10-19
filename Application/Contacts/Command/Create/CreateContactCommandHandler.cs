@@ -1,5 +1,6 @@
 using Application.Authentication.Abstraction;
 using Application.Category.Abstraction;
+using Application.Category.Consts;
 using Application.Category.Model.Error;
 using Application.Common.Abstraction;
 using Application.Contacts.Abstraction;
@@ -52,7 +53,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             request.PhoneNumber,
             _authenticationService.HashPassword(request.Password));
         
-        if (category.Name == "Business" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
+        if (category.Name == CategoryConstants.Business && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
         {
             var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
             if (subcategory is null)
@@ -66,7 +67,7 @@ public sealed class CreateContactCommandHandler : ICommandHandler<CreateContactC
             }
         }
         
-        if (category.Name == "Other" && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
+        if (category.Name == CategoryConstants.Other  && request.SubcategoryName is not null  && request.SubcategoryName.Length > 0)
         {
             var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
             if (subcategory is null)

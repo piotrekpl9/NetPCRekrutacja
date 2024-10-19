@@ -1,5 +1,6 @@
 using Application.Authentication.Abstraction;
 using Application.Category.Abstraction;
+using Application.Category.Consts;
 using Application.Category.Model.Error;
 using Application.Common.Abstraction;
 using Application.Contacts.Abstraction;
@@ -43,13 +44,13 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
                 return Result.Failure(CategoryError.CategoryNotFound);
             }
 
-            if (category.Name != "Private")
+            if (category.Name != CategoryConstants.Private)
             {
                 if (request.SubcategoryName != contact.Subcategory?.Name)
                 {
                     var subcategory = await _subcategoryRepository.GetByName(request.SubcategoryName, cancellationToken);
 
-                    if (category.Name == "Business")
+                    if (category.Name == CategoryConstants.Business )
                     {
                         if (subcategory is null || !subcategory.IsDefault)
                         {
@@ -57,7 +58,7 @@ public sealed class UpdateContactCommandHandler : ICommandHandler<UpdateContactC
                         }
                         
                     }
-                    else if(category.Name == "Other")
+                    else if(category.Name == CategoryConstants.Other )
                     {
                         if (subcategory is null)
                         {
